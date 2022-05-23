@@ -1,0 +1,229 @@
+Question 1:-
+create table DEPT(
+DEPTNO	int(2) primary key,
+DNAME	varchar(15),
+LOC	varchar(10));
+
+insert into table DEPT(DEPTNO, DNAME, LOC) values(10,'ACCOUNTING','NEW YORK');
+insert into table DEPT(DEPTNO, DNAME, LOC) values(20, 'RESEARCH', 'DALLAS');
+insert into table DEPT(DEPTNO, DNAME, LOC) values(30, 'SALES','CHICAGO');
+insert into table DEPT(DEPTNO, DNAME, LOC) values(40, 'OPERATIONS', 'BOSTON');
+
+
+Question 2:-
+create table EMP(
+EMPNO	int(4) primary key,
+ENAME	varchar(10),
+JOB	varchar(9),
+HIREDATE date,
+SAL	float(7,2),
+COMM	float(7,2),
+DEPTNO	int(2));
+
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7839, 'KING', 'MANAGER', '1991-11-17',5000, NULL, 10);
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7698, 'BLAKE', 'CLERK', '1981-05-01',2850, NULL, 30);
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7782, 'CLARK', 'MANAGER', '1981-06-09', 2450, NULL, 10);
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7566, 'JONES', 'CLERK', '1981-04-02', 2975, NULL, 20);
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7654, 'MARTIN', 'SALESMAN', '1981-09-28', 1250, 1400, 30);
+insert into EMP(EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, DEPTNO) values(7499, 'ALLEN', 'SALESMAN', '1981-02-20', 1600, 300, 30);
+
+
+Question 3: - select * from EMP where SAL BETWEEN 2500 and 5000;
++-------+-------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+5 rows in set (0.00 sec)
+Question 4: - select * from EMP order by ENAME desc;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+Question 5: - select lower(JOB) from EMP;
++------------+
+| lower(JOB) |
++------------+
+| clerk      |
+| salesman   |
+| salesman   |
+| manager    |
+| salesman   |
+| manager    |
+| manager    |
+| analyst    |
+| president  |
+| salesman   |
+| clerk      |
+| clerk      |
+| analyst    |
+| clerk      |
++------------+
+14 rows in set (0.01 sec)
+Question 6: -  select ENAME,length(ENAME) from EMP;
++--------+---------------+
+| ENAME  | length(ENAME) |
++--------+---------------+
+| SMITH  |             5 |
+| ALLEN  |             5 |
+| WARD   |             4 |
+| JONES  |             5 |
+| MARTIN |             6 |
+| BLAKE  |             5 |
+| CLARK  |             5 |
+| SCOTT  |             5 |
+| KING   |             4 |
+| TURNER |             6 |
+| ADAMS  |             5 |
+| JAMES  |             5 |
+| FORD   |             4 |
+| MILLER |             6 |
++--------+---------------+
+14 rows in set (0.00 sec)
+Question 7: - SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY DEPTNO;
++--------+----------+
+| DEPTNO | COUNT(*) |
++--------+----------+
+|     20 |        5 |
+|     30 |        6 |
+|     10 |        3 |
++--------+----------+
+3 rows in set (0.01 sec)
+QUESTION 8:  select dname, ename from emp, dept where emp.deptno=dept.deptno order by dname;
++------------+--------+
+| dname      | ename  |
++------------+--------+
+| ACCOUNTING | CLARK  |
+| ACCOUNTING | KING   |
+| ACCOUNTING | MILLER |
+| RESEARCH   | SMITH  |
+| RESEARCH   | JONES  |
+| RESEARCH   | SCOTT  |
+| RESEARCH   | ADAMS  |
+| RESEARCH   | FORD   |
+| SALES      | ALLEN  |
+| SALES      | WARD   |
+| SALES      | MARTIN |
+| SALES      | BLAKE  |
+| SALES      | TURNER |
+| SALES      | JAMES  |
++------------+--------+
+14 rows in set (0.00 sec)
+
+Question 9: - SELECT ENAME,POSITION('ER' IN ENAME ) AS First_Occ_ER FROM EMP;  
++--------+--------------+
+| ENAME  | First_Occ_ER |
++--------+--------------+
+| SMITH  |            0 |
+| ALLEN  |            0 |
+| WARD   |            0 |
+| JONES  |            0 |
+| MARTIN |            0 |
+| BLAKE  |            0 |
+| CLARK  |            0 |
+| SCOTT  |            0 |
+| KING   |            0 |
+| TURNER |            5 |
+| ADAMS  |            0 |
+| JAMES  |            0 |
+| FORD   |            0 |
+| MILLER |            5 |
++--------+--------------+
+14 rows in set (0.00 sec)
+Question 10: - SELECT ENAME, SAL, SAL*0.2 AS HRA FROM EMP;
++--------+---------+----------+
+| ENAME  | SAL     | HRA      |
++--------+---------+----------+
+| SMITH  |  800.00 |  160.000 |
+| ALLEN  | 1600.00 |  320.000 |
+| WARD   | 1250.00 |  250.000 |
+| JONES  | 2975.00 |  595.000 |
+| MARTIN | 1250.00 |  250.000 |
+| BLAKE  | 2850.00 |  570.000 |
+| CLARK  | 2450.00 |  490.000 |
+| SCOTT  | 3000.00 |  600.000 |
+| KING   | 5000.00 | 1000.000 |
+| TURNER | 1500.00 |  300.000 |
+| ADAMS  | 1100.00 |  220.000 |
+| JAMES  |  950.00 |  190.000 |
+| FORD   | 3000.00 |  600.000 |
+| MILLER | 1300.00 |  260.000 |
++--------+---------+----------+
+14 rows in set (0.00 sec)
+
+SECTION2
+1. Write a stored procedure by the name of PROC1 that accepts two varchar strings
+as parameters. Your procedure should then determine if the first varchar string 
+exists inside the varchar string. For example, if string1 = ‘DAC’ and string2 = 
+‘CDAC, then string1 exists inside string2. The stored procedure should insert the 
+appropriate message into a suitable TEMPP output table. Calling program for the 
+stored procedure need not be written.
+
+create table string2(
+ename varchar(10)
+);
+insert into string2 values ('DAC'),('CDAC');
+
+create table Tempp7
+(
+res varchar(10)
+);
+
+delimiter //
+create procedure PROC3()
+begin
+declare res varchar(10);
+set res =(select * from string2 where ename like'%CDAC%');
+insert into Tempp7 values (res);
+end; //
+delimiter ;
+
+2. Create a stored function by the name of FUNC1 to take three parameters, the 
+sides of a triangle. The function should return a Boolean value:- TRUE if the 
+triangle is valid, FALSE otherwise. A triangle is valid if the length of each side is 
+less than the sum of the lengths of the other two sides. Check if the dimensions 
+entered can form a valid triangle. Calling program for the stored function need not 
+be written.
+
+create table Tempp8(triangle varchar(20));
+delimiter //
+create function FUNV1(x int, y int, z int)
+returns boolean
+deterministic
+begin
+if (x+y>z)and(x+z>y)then
+return true;
+else return false;
+end if;
+end; //
+delimiter ;
+
+
+delimiter //
+create procedure Triangle1(x int, y int, z int)
+begin
+declare res varchar(20);
+set res= FUNV1(x,y,z);
+insert into Tempp8 values (res);
+end; //
+delimiter ;
